@@ -5,6 +5,8 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+    title:'32 Bits',
+    subtitle: 'Juegos de PC y Consolas',
     juegos:[
       {
         codigo: "0001",
@@ -56,9 +58,12 @@ const store = new Vuex.Store({
       },
     ],
     ventas:[],
-    titulo:"Juegos disponibles",
   },
-  getters: {},
+  getters: {
+    totalJuegos: state =>{
+      return state.juegos.length;
+    }
+  },
   mutations: {},
   actions: {}
 });

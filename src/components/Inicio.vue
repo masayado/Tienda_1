@@ -1,12 +1,16 @@
 <template>
     <div>
-        <h1>32 Bits</h1>
-        <h2>Juegos de PC y Consolas</h2>
+        <h1>{{title}}</h1>
+        <h2>{{subtitle}}</h2>
     </div>
 </template>
 <script>
-//import {mapState} from 'vuex'
+import {mapState} from 'vuex'
 export default {
+    components:{},
+    computed:{
+        ...mapState(['title', 'subtitle'])
+    }
 }
 </script>
 

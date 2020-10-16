@@ -2,31 +2,20 @@
     <div>
         <div class="busqueda">
             <h1> Busca tu juego</h1>
-            <input type="text" 
-            placeholder="Ingresa codigo" 
-            v-model="buscar" 
-            @change="buscando">
+            <input type="text" placeholder="Ingresa codigo">
             <hr>
-            Cantidad de juegos disponibles: {{juegos_total}}
+                <p>Cantidad de juegos disponibles: {{totalJuegos}}</p>
             <hr>
         </div>
-        <div class="lista">
-            <ul>
-                <li v-for="juego in juegos" :key="juego.codigo">
-                     <span class="lista_juegos" :style="{background: juego.color}">
-                        {{juego.codigo}} |
-                        {{juego.nombre}} |
-                        {{juego.stock}} |
-                        {{juego.precio}}
-                    </span>
-                </li>
-            </ul>
+        <div class="lista_juegos">
+        <lista-juegos></lista-juegos>
         </div>
     </div>
 </template>
 
 <script>
-import {mapState} from 'vuex';
+import Lista from '@/components/Lista.vue'
+import {mapState, mapGetters} from 'vuex';
 export default {
     name: 'busquedas',
     props: {
@@ -34,21 +23,23 @@ export default {
             type:Array,
             required:true,
         },
-        juegos_total:{},
     },
     data: function(){
         return {}
     },
     computed: {
-    //    ...mapState(['juegos'])
-    ...mapState({
-        juegos:(state)=>state.juegos
-    })
+        ...mapState(['juegos']),
+        ...mapGetters(['totalJuegos']),
+    //...mapState({
+    //    juegos:(state)=>state.juegos
+    //}),
     },
     methods: {
         
     },
-    //components: {},
+    components: {
+        'lista-juegos':Lista,
+    },
 }
 </script>
 
@@ -59,5 +50,10 @@ export default {
 
 .busqueda input{
     margin-bottom:15px;
+}
+
+.lista_juegos{
+    display:flex;
+    justify-content: center;
 }
 </style>
