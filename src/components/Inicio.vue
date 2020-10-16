@@ -1,8 +1,6 @@
 <template>
     <div>
-        <p>
-            Aca va el contenido
-        </p>
+    <p>Aca va el contenido</p>
     </div>
 </template>
 <script>
@@ -10,3 +8,10 @@
 export default {
 }
 </script>
+
+<style scoped>
+p{
+    padding-top:40px;
+    text-align: center;
+}
+</style>

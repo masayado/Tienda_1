@@ -1,26 +1,10 @@
 <template>
-<div>
-   <div class="encabezado">
-      <h1>32 Bits</h1>
-      <h2>Juegos de PC y Consola</h2>
-    </div>
-    <nav class="menu">
-      <ul>
-        <li><router-link :to="{name: 'inicio'}">Inicio</router-link></li>
-        <li><router-link :to="{name: 'busquedas'}">Búsquedas</router-link></li>
-        <li><router-link :to="{name: 'ventas'}">Ventas</router-link></li>
-        <li><router-link :to="{name: 'total'}">Total</router-link></li>
-      </ul>
-      <transition name="vista">
-        <router-view></router-view>
-      </transition>
-    </nav>
-</div>
+    <h1> Nuevo componente</h1>
 </template>
 
 <script>
 export default {
-    name: 'presentacion-component',
+    name: 'component-name',
     // props: {},
     data: function(){
         return {}

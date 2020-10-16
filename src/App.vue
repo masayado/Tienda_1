@@ -1,40 +1,59 @@
 <template>
   <div id="app">
-    <img alt="logo" src="./assets/logo.png">
-    <presentacion-component></presentacion-component>
+    <div class="header">
+      <img alt="logo" src="./assets/logo.png">
+      <h1>32 Bits</h1>
+      <h2>Juegos de PC y Consolas</h2>
+    </div>
+    <nav>
+        <router-link :to="{name: 'inicio'}">Inicio</router-link>
+        <router-link :to="{name: 'busquedas'}">Búsquedas</router-link>
+        <router-link :to="{name: 'ventas'}">Ventas</router-link>
+        <router-link :to="{name: 'total'}">Total</router-link>
+    </nav>
+    <transition name="vista">
+      <router-view></router-view>
+    </transition>
   </div>
-
-  
 </template>
 
 <script>
-import Presentacion from '@/views/Presentacion.vue'
+
 export default {
-  components:{
-    'presentacion-component':Presentacion,
-  },
 }
 </script>
 
 <style scoped>
 
-body{
-  padding:0;
-  margin:0;
-  box-sizing:border-box;
-}
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
 .vista-enter-active, .vista-leave-active {
     transition: opacity .1s;
 }
 .vista-enter, .vista-leave-to{
     opacity: 0;
 }
+.header{
+  text-align: center;
+}
 
+h1, h2{
+  text-align:center;
+}
+
+nav{
+  width: 100%;
+  height:75px;
+  display:flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #000;
+}
+
+nav a{
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover{
+  color:lightgreen;
+}
 </style>

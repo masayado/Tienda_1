@@ -11,6 +11,10 @@ export default new Router({
             path: '/',
             name: 'inicio',
             component: Inicio
-        }     
+        },
+        {
+            path:'/',
+            redirect:'/inicio',
+        },     
     ]
 })
