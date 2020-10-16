@@ -23,7 +23,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+
+body{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
 
 .vista-enter-active, .vista-leave-active {
     transition: opacity .1s;
