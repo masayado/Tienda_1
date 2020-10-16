@@ -2,8 +2,6 @@
   <div id="app">
     <div class="header">
       <img alt="logo" src="./assets/logo.png">
-      <h1>32 Bits</h1>
-      <h2>Juegos de PC y Consolas</h2>
     </div>
     <nav>
         <router-link :to="{name: 'inicio'}">Inicio</router-link>

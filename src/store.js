@@ -55,6 +55,8 @@ const store = new Vuex.Store({
         destacado: true,
       },
     ],
+    ventas:[],
+    titulo:"Juegos disponibles",
   },
   getters: {},
   mutations: {},

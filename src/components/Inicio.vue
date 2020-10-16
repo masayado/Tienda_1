@@ -1,6 +1,7 @@
 <template>
     <div>
-    <p>Aca va el contenido</p>
+        <h1>32 Bits</h1>
+        <h2>Juegos de PC y Consolas</h2>
     </div>
 </template>
 <script>
@@ -10,8 +11,7 @@ export default {
 </script>
 
 <style scoped>
-p{
-    padding-top:40px;
+h1{
     text-align: center;
 }
 </style>
