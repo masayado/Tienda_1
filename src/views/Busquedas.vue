@@ -27,8 +27,9 @@ export default {
         ...mapState(['juegos']),
         ...mapGetters(['totalJuegos', 'juegosConStock']),
         juegosConFiltro(){
-            if(this.search_id === '')return this.juegosConStock
-            return this.juegosConStock.filter((juego)=>juego.id === this.search_id)
+        //    if(this.search_id === '')return this.juegosConStock
+        //    return this.juegosConStock.filter((juego)=>juego.id === this.search_id)
+        return this.juegosConStock.filter((juego)=> juego.id.includes(this.search_id))
         }
     },
     methods: {
