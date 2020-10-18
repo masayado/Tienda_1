@@ -36,11 +36,6 @@ export default {
         }
     },
     computed: {
-        filteredList() {
-        return this.juegosConStock.filter(juego => {
-        return juego.id.toLowerCase().includes(this.search.toLowerCase())
-      })
-    }
     },
     methods: {
     },
