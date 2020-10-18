@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="form">
-        <input type="text" v-model="search" @change="buscar">
+        <input type="text" placeholder="Ingresa código" v-model="search" @change="buscar">
         <button @click.prevent="buscar">Buscar</button>
         </div>
     </div>
