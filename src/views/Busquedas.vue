@@ -6,7 +6,7 @@
         </div>
         <br>
         <div class="lista_juegos">
-            <lista-juegos :juegos="juegosConFiltro" :totalJuegos="totalJuegos"></lista-juegos>
+            <lista-juegos :juegos="juegosConFiltro" :totalJuegos="totalJuegos" :sumaStockTotal="sumaStockTotal"></lista-juegos>
         </div>
     </div>
 </template>
@@ -25,7 +25,7 @@ export default {
     },
     computed: {
         ...mapState(['juegos']),
-        ...mapGetters(['totalJuegos', 'juegosConStock']),
+        ...mapGetters(['totalJuegos', 'juegosConStock', 'sumaStockTotal']),
         juegosConFiltro(){
         //    if(this.search_id === '')return this.juegosConStock
         //    return this.juegosConStock.filter((juego)=>juego.id === this.search_id)

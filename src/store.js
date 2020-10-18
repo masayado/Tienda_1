@@ -75,7 +75,10 @@ const store = new Vuex.Store({
       },
     ventasRealizadas: state=>{
       return state.ventas.length
-    }
+    },
+    sumaStockTotal: state=>{
+      return state.juegos.reduce((acc, juego) => acc += parseInt(juego.stock),0)
+     },
   },
   mutations: {},
   actions: {}

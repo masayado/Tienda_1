@@ -3,6 +3,7 @@
         <div class="busqueda">
             <hr>
                 <p>Cantidad de juegos disponibles: {{totalJuegos}}</p>
+                <p>Stock total: {{sumaStockTotal}}</p>
             <hr>
         </div>
         <div class="lista">
@@ -29,6 +30,7 @@ export default {
             required:true,
         },
         totalJuegos:{},
+        sumaStockTotal:{},
     },
     data: function(){
         return {
