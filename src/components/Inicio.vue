@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h1>{{title}}</h1>
-        <h2>{{subtitle}}</h2>
+        <h1 v-text="titulo"></h1>
+        <h2 v-text="subtitulo"></h2>
     </div>
 </template>
 <script>
@@ -9,7 +9,7 @@ import {mapState} from 'vuex'
 export default {
     components:{},
     computed:{
-        ...mapState(['title', 'subtitle'])
+        ...mapState(['titulo', 'subtitulo'])
     }
 }
 </script>

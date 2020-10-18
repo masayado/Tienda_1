@@ -1,10 +1,15 @@
 <template>
     <div>
+        <div class="busqueda">
+            <hr>
+                <p>Cantidad de juegos disponibles: {{totalJuegos}}</p>
+            <hr>
+        </div>
         <div class="lista">
             <ul>
-                <li v-for="juego in juegos" :key="juego.codigo">
+                <li v-for="juego in juegos" :key="juego.id">
                      <span class="lista_juegos" :style="{background: juego.color}">
-                        {{juego.codigo}} |
+                        {{juego.id}} |
                         {{juego.nombre}} |
                         {{juego.stock}} |
                         {{juego.precio}}
@@ -16,7 +21,6 @@
 </template>
 
 <script>
-import {mapState} from 'vuex';
 export default {
     name: 'listajuegos-component',
     props: {
@@ -24,15 +28,21 @@ export default {
             type:Array,
             required:true,
         },
+        totalJuegos:{},
     },
     data: function(){
-        return {}
+        return {
+            search:'',
+        }
     },
     computed: {
-        ...mapState(['juegos'])
+        filteredList() {
+        return this.juegosConStock.filter(juego => {
+        return juego.id.toLowerCase().includes(this.search.toLowerCase())
+      })
+    }
     },
     methods: {
-        // -- Metodos
     },
     //components: {},
 }
@@ -40,9 +50,12 @@ export default {
 
 <style scoped>
 
-.lista{
-    margin:0 auto;
+input{
+    margin-bottom: 10px;
 }
 
+p{
+    text-align: center;
+}
     
 </style>

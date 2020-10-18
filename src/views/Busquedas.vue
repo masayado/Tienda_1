@@ -1,59 +1,53 @@
 <template>
     <div>
-        <div class="busqueda">
-            <h1> Busca tu juego</h1>
-            <input type="text" placeholder="Ingresa codigo">
-            <hr>
-                <p>Cantidad de juegos disponibles: {{totalJuegos}}</p>
-            <hr>
+        <h1>Búsqueda</h1>
+        <div class="input">
+            <search-juegos @buscar="search"></search-juegos>
         </div>
+        <br>
         <div class="lista_juegos">
-        <lista-juegos></lista-juegos>
+            <lista-juegos :juegos="juegosConFiltro" :totalJuegos="totalJuegos"></lista-juegos>
         </div>
     </div>
 </template>
 
 <script>
-import Lista from '@/components/Lista.vue'
-import {mapState, mapGetters} from 'vuex';
+import {mapGetters, mapState} from 'vuex';
+import ListFiltro from '@/components/ListFiltro.vue'
+import List from '@/components/List.vue'
 export default {
     name: 'busquedas',
-    props: {
-        juegos:{
-            type:Array,
-            required:true,
-        },
-    },
+    //props: {},
     data: function(){
-        return {}
+        return {
+            search_id:'',
+        }
     },
     computed: {
         ...mapState(['juegos']),
-        ...mapGetters(['totalJuegos']),
-    //...mapState({
-    //    juegos:(state)=>state.juegos
-    //}),
+        ...mapGetters(['totalJuegos', 'juegosConStock']),
+        juegosConFiltro(){
+            if(this.search_id === '')return this.juegosConStock
+            return this.juegosConStock.filter((juego)=>juego.id === this.search_id)
+        }
     },
     methods: {
-        
+        search(e){
+            this.search_id = e.search_id;
+        }
     },
     components: {
-        'lista-juegos':Lista,
+        'lista-juegos':List,
+        'search-juegos':ListFiltro,
     },
 }
 </script>
 
 <style scoped>
-.busqueda{
-    text-align:center;
-}
-
-.busqueda input{
-    margin-bottom:15px;
-}
 
 .lista_juegos{
     display:flex;
     justify-content: center;
 }
+    
 </style>
